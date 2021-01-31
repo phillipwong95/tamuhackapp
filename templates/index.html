@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>CLOUD PANTRY</title>
+
+  <!-- Bootstrap core CSS -->
+  <style>
+  body {
+    font-size: 20px;
+    color: #212529;
+    font-family: 'Lora', 'Times New Roman', serif;
+  }
+
+  p {
+    line-height: 1.5;
+    margin: 30px 0;
+  }
+
+  p a {
+    text-decoration: underline;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 800;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  a {
+    color: #212529;
+    transition: all 0.2s;
+  }
+
+  a:focus, a:hover {
+    color: #0085A1;
+  }
+
+  blockquote {
+    font-style: italic;
+    color: #868e96;
+  }
+
+  .section-heading {
+    font-size: 36px;
+    font-weight: 700;
+    margin-top: 60px;
+  }
+
+  .caption {
+    font-size: 14px;
+    font-style: italic;
+    display: block;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  ::-moz-selection {
+    color: #fff;
+    background: #0085A1;
+    text-shadow: none;
+  }
+
+  ::selection {
+    color: #fff;
+    background: #0085A1;
+    text-shadow: none;
+  }
+
+  img::-moz-selection {
+    color: #fff;
+    background: transparent;
+  }
+
+  img::selection {
+    color: #fff;
+    background: transparent;
+  }
+
+  img::-moz-selection {
+    color: #fff;
+    background: transparent;
+  }
+
+  #mainNav {
+    position: absolute;
+    border-bottom: 1px solid #e9ecef;
+    background-color: white;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  #mainNav .navbar-brand {
+    font-weight: 800;
+    color: #343a40;
+  }
+
+  #mainNav .navbar-toggler {
+    font-size: 12px;
+    font-weight: 800;
+    padding: 13px;
+    text-transform: uppercase;
+    color: #343a40;
+  }
+
+  #mainNav .navbar-nav > li.nav-item > a {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  @media only screen and (min-width: 992px) {
+    #mainNav {
+      border-bottom: 1px solid transparent;
+      background: transparent;
+    }
+    #mainNav .navbar-brand {
+      padding: 10px 20px;
+      color: #fff;
+    }
+    #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    #mainNav .navbar-nav > li.nav-item > a {
+      padding: 10px 20px;
+      color: #fff;
+    }
+    #mainNav .navbar-nav > li.nav-item > a:focus, #mainNav .navbar-nav > li.nav-item > a:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  @media only screen and (min-width: 992px) {
+    #mainNav {
+      transition: background-color 0.2s;
+      /* Force Hardware Acceleration in WebKit */
+      transform: translate3d(0, 0, 0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    #mainNav.is-fixed {
+      /* when the user scrolls down, we hide the header right above the viewport */
+      position: fixed;
+      top: -67px;
+      transition: transform 0.2s;
+      border-bottom: 1px solid white;
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+    #mainNav.is-fixed .navbar-brand {
+      color: #212529;
+    }
+    #mainNav.is-fixed .navbar-brand:focus, #mainNav.is-fixed .navbar-brand:hover {
+      color: #0085A1;
+    }
+    #mainNav.is-fixed .navbar-nav > li.nav-item > a {
+      color: #212529;
+    }
+    #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus, #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
+      color: #0085A1;
+    }
+    #mainNav.is-visible {
+      /* if the user changes the scrolling direction, we show the header */
+      transform: translate3d(0, 100%, 0);
+    }
+  }
+
+  header.masthead {
+    margin-bottom: 50px;
+    background: no-repeat center center;
+    background-color: #868e96;
+    background-attachment: scroll;
+    position: relative;
+    background-size: cover;
+  }
+
+  header.masthead .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #212529;
+    opacity: 0.5;
+  }
+
+  header.masthead .page-heading,
+  header.masthead .post-heading,
+  header.masthead .site-heading {
+    padding: 200px 0 150px;
+    color: white;
+  }
+
+  @media only screen and (min-width: 768px) {
+    header.masthead .page-heading,
+    header.masthead .post-heading,
+    header.masthead .site-heading {
+      padding: 200px 0;
+    }
+  }
+
+  header.masthead .page-heading,
+  header.masthead .site-heading {
+    text-align: center;
+  }
+
+  header.masthead .page-heading h1,
+  header.masthead .site-heading h1 {
+    font-size: 50px;
+    margin-top: 0;
+  }
+
+  header.masthead .page-heading .subheading,
+  header.masthead .site-heading .subheading {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.1;
+    display: block;
+    margin: 10px 0 0;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  @media only screen and (min-width: 768px) {
+    header.masthead .page-heading h1,
+    header.masthead .site-heading h1 {
+      font-size: 80px;
+    }
+  }
+
+  header.masthead .post-heading h1 {
+    font-size: 35px;
+  }
+
+  header.masthead .post-heading .meta,
+  header.masthead .post-heading .subheading {
+    line-height: 1.1;
+    display: block;
+  }
+
+  header.masthead .post-heading .subheading {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 10px 0 30px;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  header.masthead .post-heading .meta {
+    font-size: 20px;
+    font-weight: 300;
+    font-style: italic;
+    font-family: 'Lora', 'Times New Roman', serif;
+  }
+
+  header.masthead .post-heading .meta a {
+    color: #fff;
+  }
+
+  @media only screen and (min-width: 768px) {
+    header.masthead .post-heading h1 {
+      font-size: 55px;
+    }
+    header.masthead .post-heading .subheading {
+      font-size: 30px;
+    }
+  }
+
+  .post-preview > a {
+    color: #212529;
+  }
+
+  .post-preview > a:focus, .post-preview > a:hover {
+    text-decoration: none;
+    color: #0085A1;
+  }
+
+  .post-preview > a > .post-title {
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+
+  .post-preview > a > .post-subtitle {
+    font-weight: 300;
+    margin: 0 0 10px;
+  }
+
+  .post-preview > .post-meta {
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 0;
+    color: #868e96;
+  }
+
+  .post-preview > .post-meta > a {
+    text-decoration: none;
+    color: #212529;
+  }
+
+  .post-preview > .post-meta > a:focus, .post-preview > .post-meta > a:hover {
+    text-decoration: underline;
+    color: #0085A1;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .post-preview > a > .post-title {
+      font-size: 36px;
+    }
+  }
+
+  .floating-label-form-group {
+    font-size: 14px;
+    position: relative;
+    margin-bottom: 0;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  .floating-label-form-group input,
+  .floating-label-form-group textarea {
+    font-size: 1.5em;
+    position: relative;
+    z-index: 1;
+    padding: 0;
+    resize: none;
+    border: none;
+    border-radius: 0;
+    background: none;
+    box-shadow: none !important;
+    font-family: 'Lora', 'Times New Roman', serif;
+  }
+
+  .floating-label-form-group input::-webkit-input-placeholder,
+  .floating-label-form-group textarea::-webkit-input-placeholder {
+    color: #868e96;
+    font-family: 'Lora', 'Times New Roman', serif;
+  }
+
+  .floating-label-form-group label {
+    font-size: 0.85em;
+    line-height: 1.764705882em;
+    position: relative;
+    z-index: 0;
+    top: 2em;
+    display: block;
+    margin: 0;
+    transition: top 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+  }
+
+  .floating-label-form-group .help-block {
+    margin: 15px 0;
+  }
+
+  .floating-label-form-group-with-value label {
+    top: 0;
+    opacity: 1;
+  }
+
+  .floating-label-form-group-with-focus label {
+    color: #0085A1;
+  }
+
+  form .form-group:first-child .floating-label-form-group {
+    border-top: 1px solid #dee2e6;
+  }
+
+  footer {
+    padding: 50px 0 65px;
+  }
+
+  footer .list-inline {
+    margin: 0;
+    padding: 0;
+  }
+
+  footer .copyright {
+    font-size: 14px;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .btn {
+    font-size: 14px;
+    font-weight: 800;
+    padding: 15px 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 0;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  .btn-primary {
+    background-color: #0085A1;
+    border-color: #0085A1;
+  }
+
+  .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    color: #fff;
+    background-color: #00657b !important;
+    border-color: #00657b !important;
+  }
+
+  .btn-lg {
+    font-size: 16px;
+    padding: 25px 35px;
+  }
+</style>
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="../css/clean-blog.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">CLOUD PANTRY</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+       <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="addpantry.html">Add to My Pantry</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="mypantry.html">My Pantry</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="aboutus.html">About CLOUD Pantry</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('https://i.gifer.com/31vC.gif')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>CLOUD PANTRY</h1>
+            <span class="subheading">We'll store your pantry in the cloud!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+          <a href="aboutus.html">
+            <h2 class="post-title">
+              How many times have you thought "Do we have this at home?"
+            </h2>
+          <p class="post-meta">We'll store your groceries in the cloud so you dont have to wonder.</p>
+        </div>
+        <hr>
+        <div class="post-preview">
+          <a href="addpantry.html">
+            <h2 class="post-title">
+             ADD TO MY PANTRY
+            </h2>
+          <p class="post-meta">Use this to take a picture of your groceries. We'll automatically add them to your cloud pantry. If you already have the item in your pantry, we will notify you.</p>
+        </div>
+        <hr>
+        <div class="post-preview">
+          <a href="mypantry.html">
+            <h2 class="post-title">
+              MY PANTRY
+            </h2>
+            <h3 class="post-subtitle">
+            </h3>
+          <p class="post-meta">Use this to view what you currently have in your pantry. </p>
+        </div>
+        <hr>
+        <!-- Pager -->
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Footer -->
+ <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+        <a href="aboutus.html">
+          <p class="copyright text-muted">Made By: Sasagaeyo Tech</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
