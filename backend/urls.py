@@ -17,20 +17,25 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from django.urls import path
 from . import views
 
-from .views import searchTitles
-from .views import songDetails
-from .views import getSimilarSongs
+# from .views import searchTitles
+# from .views import songDetails
+# from .views import getSimilarSongs
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^searchTitles/', searchTitles, name='searchTitles'),
-    url(r'^songDetails/', songDetails, name='songDetails'),
-    url(r'^getSimilarSongs/', getSimilarSongs, name='getSimilarSongs'),
+    # url(r'^searchTitles/', searchTitles, name='searchTitles'),
+    # url(r'^songDetails/', songDetails, name='songDetails'),
+    # url(r'^getSimilarSongs/', getSimilarSongs, name='getSimilarSongs'),
+    path('addpantry.html', views.grocery_img_view, name = 'image_upload'),
+    path('success', views.success, name = 'success'),
     url(r'^$',views.index),
     url(r'^aboutus',views.aboutus),
     url(r'^index',views.index),
     url(r'^addpantry',views.addpantry),
     url(r'^mypantry',views.mypantry)
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

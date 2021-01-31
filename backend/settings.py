@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['127.0.0.1','musicdb-310.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'backend',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -81,10 +82,10 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd8mgcedgv549fr',
-        'USER': 'djwdentlsyoofv',
-        'PASSWORD': '200acd31c851de859734d5567f8742a9c71341d00650392ca2f6b1f6367543a2',
-        'HOST': 'ec2-54-237-155-151.compute-1.amazonaws.com',
+        'NAME': 'tamuhack2021',
+        'USER': 'phillip',
+        'PASSWORD': 'Redwater1.',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }

@@ -5,4 +5,4 @@ class imageform(forms.ModelForm):
 
     class Meta:
         model = imagemodel
-        fields = ['name', 'grocery_img'] 
+        fields = ['grocery_img'] 
